@@ -1,0 +1,452 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "HOSPITAL MANAGEMENT SYSTEM",
+      "description": "API documentation for Doctor CRUD operation",
+      "version": "1.0.0"
+    },
+    "host": "localhost:5000",
+    "basePath": "",
+    
+    "schemes": ["http", "https"], 
+    "paths": {
+      "/doctors/add": {
+        "post": {
+          "summary": "Add new Doctor",
+          "description": "Add new Doctor",
+          "tags": ["Doctors"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/doctors"
+              },
+              "required": true,
+              "description": "Doctor object"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Doctor added"
+            }
+          }
+        }
+      },
+      "/doctors/get":{
+        "get": {
+          "summary": "Get all Doctors ",
+          "description": "Get all Doctors",
+          "tags": ["Doctors"],
+          "parameters": [
+            {
+              "schema": {
+                "$ref": "#/definitions/doctors"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Doctors Retrived"
+            }
+          }
+        }
+      },
+        "/doctors/updateDoctor/{id}": {
+        "put": {
+          "summary": "Update a doctor by ID",
+          "description": "Update a doctor by ID",
+          "tags": ["Doctors"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the Doctor to update",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/doctors"
+              },
+              "required": true,
+              "description": "Updated Doctor object"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Doctor updated"
+            },
+            "404": {
+              "description": "Doctor not found"
+            }
+          }
+        }
+        
+      },
+      "/doctors/deleteDoctor/{id}":{
+        "delete": {
+          "summary": "Delete a Doctor by ID",
+          "description": "Delete a Doctor by ID",
+          "tags": ["Doctors"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the doctor to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Doctor deleted"
+            },
+            "404": {
+              "description": "Doctor not found"
+            }
+          }
+        }
+      },
+      "/doctors/getById/{id}":{
+        "get": {
+          "summary": "Get a Doctor by ID",
+          "description": "Get a Doctor by ID",
+          "tags": ["Doctors"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the Doctor to retrieve",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response"
+            },
+            "404": {
+              "description": "Doctor not found"
+            }
+          }
+        }
+      },
+      "/patient/add": {
+        "post": {
+          "summary": "Add new Patient",
+          "description": "Add new Patient",
+          "tags": ["Patients"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definition/patients"
+              },
+              "required": true,
+              "description": "Appointment object"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Appointment added"
+            }
+          }
+        }
+      },
+      
+      "/patient/get":{
+        "get": {
+          "summary": "Get all Patients ",
+          "description": "Get all Patients",
+          "tags": ["Patients"],
+          "parameters": [
+            {
+              "schema": {
+                "$ref": "#/definition/patients"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Patients Retrived"
+            }
+          }
+        }
+      },
+        "/patient/updatepatient/{id}": {
+        "put": {
+          "summary": "Update a Patient by ID",
+          "description": "Update a Patient by ID",
+          "tags": ["Patients"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the Patient to update",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definition/patients"
+              },
+              "required": true,
+              "description": "Updated Patient object"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Patient updated"
+            },
+            "404": {
+              "description": "Patient not found"
+            }
+          }
+        }
+        
+      },
+      "/patient/deletepatient/{id}":{
+        "delete": {
+          "summary": "Delete a Patient by ID",
+          "description": "Delete a Patient by ID",
+          "tags": ["Patients"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the patient to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Patient deleted"
+            },
+            "404": {
+              "description": "Patient not found"
+            }
+          }
+        }
+      },
+      "/patient/getById/{id}":{
+        "get": {
+          "summary": "Get a Patient by ID",
+          "description": "Get a Patient by ID",
+          "tags": ["Patients"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the Patient to retrieve",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response"
+            },
+            "404": {
+              "description": "Patient not found"
+            }
+          }
+        }
+      },
+      "/appointment/add": {
+        "post": {
+          "summary": "Add new appointment",
+          "description": "Add new appointment",
+          "tags": ["Appointments"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/def/appointments"
+              },
+              "required": true,
+              "description": "Patient object"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Patient added"
+            }
+          }
+        }
+      },
+      
+      "/appointment/get":{
+        "get": {
+          "summary": "Get all appointments ",
+          "description": "Get all appointments",
+          "tags": ["Appointments"],
+          "parameters": [
+            {
+              "schema": {
+                "$ref": "#/def/appointments"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Appointments Retrived"
+            }
+          }
+        }
+      },
+        "/appointment/updateappointment/{id}": {
+        "put": {
+          "summary": "Update a Appointment by ID",
+          "description": "Update a Appointment by ID",
+          "tags": ["Appointments"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the Patient to update",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/def/appointments"
+              },
+              "required": true,
+              "description": "Updated appointment object"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Appointment updated"
+            },
+            "404": {
+              "description": "Appointment not found"
+            }
+          }
+        }
+        
+      },
+      "/appointment/deleteappointment/{id}":{
+        "delete": {
+          "summary": "Delete an appointment by ID",
+          "description": "Delete an appointment by ID",
+          "tags": ["Appointments"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the appointment to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Appointment deleted"
+            },
+            "404": {
+              "description": "Appointment not found"
+            }
+          }
+        }
+      },
+      "/appointment/getById/{id}":{
+        "get": {
+          "summary": "Get an appointment by ID",
+          "description": "Get an appointment by ID",
+          "tags": ["Appointments"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "ID of the appointment to delete",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response"
+            },
+            "404": {
+              "description": "Appointment not found"
+            }
+          }
+        }
+      }
+    },
+
+    
+    "definitions": {
+      "doctors": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "specialty": {
+            "type": "string"
+          },
+          "availability": {
+            "type": "string"
+          }
+          
+        },
+        "required": ["name","specialty","availability"]
+      }
+    },
+    
+    "definition": {
+        "patients": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "contact": {
+              "type": "string"
+            },
+            "medicalHistory": {
+              "type": "string"
+            }
+            
+          },
+          "required": ["name","contact","medicalHistory"]
+        }
+      },
+
+      "def": {
+        "appointments": {
+          "type": "object",
+          "properties": {
+            "patientId": {
+              "type": "string"
+            },
+            "doctorId": {
+              "type": "string"
+            },
+            "appointmentDate": {
+              "type": "Date"
+            },
+            "status": {
+                "type": "string",
+               " enum":"['Pending', 'Confirmed', 'Cancelled']",
+               "default" : "Pending"
+              }
+            
+          },
+          "required": ["patientId","doctorId","appointmantDate","status"]
+        }
+      }
+
+}
